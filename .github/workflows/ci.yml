@@ -24,14 +24,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo "Add test workflow"
-
+     
       # Run Node markdown lint
-      # Warning is ignored.
       - name: Run markdown lint
         run: |
-          npm install remark-cli remark-preset-lint-consistent
-          npx remark --use remark-preset-lint-consistent .
+          npm install remark-cli remark-preset-lint-consistent vfile-report-json
+          npx remark . --use remark-preset-lint-consistent --report vfile-reporter-json 2> remark-lint-report.json
+      
+      # Upload lint report
+      - name: Upload lint report
+      - uses: actions/upload-artifact@v4
+        with:
+          name: remark-lint-report
+          path: remark-lint-report.json
+
