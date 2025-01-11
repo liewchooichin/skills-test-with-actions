@@ -32,7 +32,6 @@ jobs:
           npx remark . --use remark-preset-lint-consistent --report vfile-reporter-json 2> remark-lint-report.json
       
       # Upload lint report
-      - name: Upload lint report
       - uses: actions/upload-artifact@v4
         with:
           name: remark-lint-report
