@@ -30,6 +30,7 @@ jobs:
         run: echo "Add test workflow"
 
       # Run Node markdown lint
+      # Warning is ignored.
       - name: Run markdown lint
         run: |
           npm install remark-cli remark-preset-lint-consistent
