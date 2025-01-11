@@ -1,4 +1,7 @@
 # This is a basic workflow to help you get started with Actions
+# Step 2: Fix the test
+# Step 3: Upload test report
+# Step 4: Add branch protections
 
 name: CI
 
